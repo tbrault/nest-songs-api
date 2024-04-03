@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { SongsModule } from './songs/songs.module';
+import { SongsModule } from './modules/songs/songs.module';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { configOptions } from '../config/config-options';
+import { typeOrmOptions } from './db/typeorm-options';
 
 @Module({
-  imports: [SongsModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    SongsModule,
+    ConfigModule.forRoot(configOptions),
+    TypeOrmModule.forRootAsync(typeOrmOptions),
+  ],
 })
 export class AppModule {}
