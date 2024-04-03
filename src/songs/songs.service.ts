@@ -5,7 +5,7 @@ import { UpdateSongDto } from './dto/update-song.dto';
 @Injectable()
 export class SongsService {
   create(createSongDto: CreateSongDto) {
-    return 'This action adds a new song';
+    return createSongDto;
   }
 
   findAll() {
@@ -17,7 +17,7 @@ export class SongsService {
   }
 
   update(id: number, updateSongDto: UpdateSongDto) {
-    return `This action updates a #${id} song`;
+    return updateSongDto;
   }
 
   remove(id: number) {
