@@ -2,10 +2,10 @@ import {
   ArrayNotEmpty,
   IsArray,
   IsDateString,
-  IsMilitaryTime,
   IsNotEmpty,
   IsOptional,
   IsString,
+  Matches,
 } from 'class-validator';
 
 export class CreateSongDto {
@@ -22,7 +22,7 @@ export class CreateSongDto {
   @IsNotEmpty()
   releaseDate: Date;
 
-  @IsMilitaryTime()
+  @Matches(/^([0-9][0-9]):([0-5][0-9]):([0-5][0-9])$/)
   @IsNotEmpty()
   duration: Date;
 

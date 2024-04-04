@@ -9,7 +9,7 @@ import {
 @Entity()
 export class Song {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column()
   title: string;
@@ -23,7 +23,7 @@ export class Song {
   @Column('time')
   duration: Date;
 
-  @Column('text')
+  @Column('text', { nullable: true })
   lyrics: string;
 
   @CreateDateColumn()
